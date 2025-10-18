@@ -1,0 +1,26 @@
+# node dependencies
+node_modules/
+
+# environment files
+.env
+.env.*
+
+# logs
+logs/
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
+
+# build or cache folders
+dist/
+build/
+.vscode/
+.vercel/
+
+# data or misc files
+UserData.json
+addUser.json
+JWT_Generator/
+xtra.txt
