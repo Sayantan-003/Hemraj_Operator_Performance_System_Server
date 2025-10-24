@@ -18,7 +18,9 @@ const SolventOperatorSummarySchema = new mongoose.Schema({
   steamConsumed: { type: Number, default: 0 },
   electricConsumed: { type: Number, default: 0 },
   totalCrudeOilProduction: { type: Number, default: 0 },
-  totalDORBProduction: {type: Number, default: 0}
+  totalDORBProduction: {type: Number, default: 0},
+  expectedDORBProduction: { type: Number, default: 0 }, 
+  avgWeightDORBBags: { type: Number, default: 0 }, 
 
 });
 

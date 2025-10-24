@@ -71,7 +71,6 @@
 // //   }
 // // };
 
-
 // // /**
 // //  * Get all logs (optionally filter by date range)
 // //  * Example: GET /api/solvent?startDate=2025-08-01&endDate=2025-08-05
@@ -151,7 +150,6 @@
 // //   }
 // // };
 
-
 // // // export const getOperatorSummariesInRange = async (req, res) => {
 // // //   try {
 // // //   console.log("[API] /operators-range called", req.query);
@@ -189,9 +187,6 @@
 // // //   }
 // // // };
 
-
-
-
 // // /**
 // //  * Debug / fallback: Get raw log by date
 // //  * Example: GET /api/solvent/2025-08-22
@@ -216,8 +211,6 @@
 // //   }
 // // };
 
-
-
 // // // export const getOperatorSummariesInRange = async (req, res) => {
 // // //   const { startDate, endDate } = req.query;
 // // //   try {
@@ -227,8 +220,6 @@
 // // //     res.status(500).json({ error: err.message });
 // // //   }
 // // // };
-
-
 
 // // // export const getOperatorPerformanceInRange = async (req, res) => {
 // // //   const { startDate, endDate, operatorName } = req.query;
@@ -244,34 +235,32 @@
 // // //   }
 // // // };
 
-
-
 // // // Add these functions to your solvent.controller.js
 
 // // export const getOperatorSummariesInRange = async (req, res) => {
 // //   try {
 // //     const { startDate, endDate } = req.query;
-    
+
 // //     if (!startDate || !endDate) {
-// //       return res.status(400).json({ 
-// //         error: "Both startDate and endDate are required" 
+// //       return res.status(400).json({
+// //         error: "Both startDate and endDate are required"
 // //       });
 // //     }
 
 // //     const summaries = await SolventService.getOperatorSummariesInRange(startDate, endDate);
-    
+
 // //     if (!summaries) {
-// //       return res.status(404).json({ 
-// //         message: "No operator data found for the specified date range" 
+// //       return res.status(404).json({
+// //         message: "No operator data found for the specified date range"
 // //       });
 // //     }
 
 // //     res.status(200).json(summaries);
 // //   } catch (error) {
 // //     console.error("Error fetching operator summaries in range:", error);
-// //     res.status(500).json({ 
-// //       error: "Failed to fetch operator summaries", 
-// //       details: error.message 
+// //     res.status(500).json({
+// //       error: "Failed to fetch operator summaries",
+// //       details: error.message
 // //     });
 // //   }
 // // };
@@ -279,37 +268,34 @@
 // // export const getOperatorPerformanceInRange = async (req, res) => {
 // //   try {
 // //     const { startDate, endDate, operatorName } = req.query;
-    
+
 // //     if (!startDate || !endDate || !operatorName) {
-// //       return res.status(400).json({ 
-// //         error: "startDate, endDate, and operatorName are all required" 
+// //       return res.status(400).json({
+// //         error: "startDate, endDate, and operatorName are all required"
 // //       });
 // //     }
 
 // //     const performance = await SolventService.getOperatorPerformanceInRange(
-// //       startDate, 
-// //       endDate, 
+// //       startDate,
+// //       endDate,
 // //       operatorName
 // //     );
-    
+
 // //     if (!performance) {
-// //       return res.status(404).json({ 
-// //         message: "No performance data found for the specified operator and date range" 
+// //       return res.status(404).json({
+// //         message: "No performance data found for the specified operator and date range"
 // //       });
 // //     }
 
 // //     res.status(200).json(performance);
 // //   } catch (error) {
 // //     console.error("Error fetching operator performance in range:", error);
-// //     res.status(500).json({ 
-// //       error: "Failed to fetch operator performance", 
-// //       details: error.message 
+// //     res.status(500).json({
+// //       error: "Failed to fetch operator performance",
+// //       details: error.message
 // //     });
 // //   }
 // // };
-
-
-
 
 // // controllers/solvent.controller.js
 // import DailyLog from "../models/solvent/FormSchema.js";
@@ -328,27 +314,27 @@
 // export const getOperatorSummariesInRange = async (req, res) => {
 //   try {
 //     const { startDate, endDate } = req.query;
-    
+
 //     if (!startDate || !endDate) {
-//       return res.status(400).json({ 
-//         error: "Both startDate and endDate are required" 
+//       return res.status(400).json({
+//         error: "Both startDate and endDate are required"
 //       });
 //     }
 
 //     const summaries = await SolventService.getOperatorSummariesInRange(startDate, endDate);
-    
+
 //     if (!summaries) {
-//       return res.status(404).json({ 
-//         message: "No operator data found for the specified date range" 
+//       return res.status(404).json({
+//         message: "No operator data found for the specified date range"
 //       });
 //     }
 
 //     res.status(200).json(summaries);
 //   } catch (error) {
 //     console.error("Error fetching operator summaries in range:", error);
-//     res.status(500).json({ 
-//       error: "Failed to fetch operator summaries", 
-//       details: error.message 
+//     res.status(500).json({
+//       error: "Failed to fetch operator summaries",
+//       details: error.message
 //     });
 //   }
 // };
@@ -356,31 +342,31 @@
 // export const getOperatorPerformanceInRange = async (req, res) => {
 //   try {
 //     const { startDate, endDate, operatorName } = req.query;
-    
+
 //     if (!startDate || !endDate || !operatorName) {
-//       return res.status(400).json({ 
-//         error: "startDate, endDate, and operatorName are all required" 
+//       return res.status(400).json({
+//         error: "startDate, endDate, and operatorName are all required"
 //       });
 //     }
 
 //     const performance = await SolventService.getOperatorPerformanceInRange(
-//       startDate, 
-//       endDate, 
+//       startDate,
+//       endDate,
 //       operatorName
 //     );
-    
+
 //     if (!performance) {
-//       return res.status(404).json({ 
-//         message: "No performance data found for the specified operator and date range" 
+//       return res.status(404).json({
+//         message: "No performance data found for the specified operator and date range"
 //       });
 //     }
 
 //     res.status(200).json(performance);
 //   } catch (error) {
 //     console.error("Error fetching operator performance in range:", error);
-//     res.status(500).json({ 
-//       error: "Failed to fetch operator performance", 
-//       details: error.message 
+//     res.status(500).json({
+//       error: "Failed to fetch operator performance",
+//       details: error.message
 //     });
 //   }
 // };
@@ -388,13 +374,13 @@
 // // export const getDashboardData = async (req, res) => {
 // //   try {
 // //     const { date, startDate, endDate } = req.query;
-    
+
 // //     if (date) {
 // //       // Single date request
 // //       console.log("Dashboard request for single date:", date);
-      
+
 // //       const summaries = await SolventOperatorSummary.find({ date });
-      
+
 // //       if (!summaries || summaries.length === 0) {
 // //         // Try to regenerate from daily logs
 // //         const dailyLog = await DailyLog.findOne({ date });
@@ -411,7 +397,7 @@
 // //             charts: []
 // //           });
 // //         }
-        
+
 // //         return res.json({
 // //           data: { steam: 0, electric: 0, production: 0 },
 // //           charts: []
@@ -450,27 +436,25 @@
 // //       });
 
 // //     } else {
-// //       return res.status(400).json({ 
-// //         error: "Either 'date' or both 'startDate' and 'endDate' are required" 
+// //       return res.status(400).json({
+// //         error: "Either 'date' or both 'startDate' and 'endDate' are required"
 // //       });
 // //     }
 
 // //   } catch (error) {
 // //     console.error("Error fetching dashboard data:", error);
-// //     res.status(500).json({ 
-// //       error: "Failed to fetch dashboard data", 
-// //       details: error.message 
+// //     res.status(500).json({
+// //       error: "Failed to fetch dashboard data",
+// //       details: error.message
 // //     });
 // //   }
 // // };
-
-
 
 // //Get operator summary data for a specific date (for frontend table)
 // export const getOperatorSummaryForDate = async (req, res) => {
 //   try {
 //     const { date } = req.query;
-    
+
 //     if (!date) {
 //       return res.status(400).json({ error: "Date query parameter is required" });
 //     }
@@ -478,11 +462,11 @@
 //     console.log("Fetching operator summary for date:", date);
 
 //     let summaries = await SolventOperatorSummary.find({ date });
-    
+
 //     // If no summaries found, try to generate them from daily logs
 //     if (!summaries || summaries.length === 0) {
 //       console.log("No summaries found, checking daily logs...");
-      
+
 //       const dailyLog = await DailyLog.findOne({ date });
 //       if (dailyLog) {
 //         console.log("Daily log found, generating summaries...");
@@ -492,7 +476,7 @@
 //     }
 
 //     if (!summaries || summaries.length === 0) {
-//       return res.status(404).json({ 
+//       return res.status(404).json({
 //         message: "No operator data found for this date",
 //         data: []
 //       });
@@ -503,9 +487,9 @@
 
 //   } catch (error) {
 //     console.error("Error fetching operator summary:", error);
-//     res.status(500).json({ 
-//       error: "Failed to fetch operator summary", 
-//       details: error.message 
+//     res.status(500).json({
+//       error: "Failed to fetch operator summary",
+//       details: error.message
 //     });
 //   }
 // };
@@ -561,11 +545,11 @@
 //   try {
 //     const { date } = req.params;
 //     const log = await SolventService.getLogByDate(date);
-    
+
 //     if (!log) {
 //       return res.status(404).json({ error: "No log found for this date" });
 //     }
-    
+
 //     res.json(log);
 //   } catch (err) {
 //     console.error("Error fetching log by date:", err);
@@ -637,20 +621,18 @@
 //   }
 // };
 
-
-
 // // controllers/solvent.controller.js - Updated getDashboardData function
 
 // export const getDashboardData = async (req, res) => {
 //   try {
 //     const { date, startDate, endDate } = req.query;
-    
+
 //     if (date) {
 //       // Single date request - existing logic is fine
 //       console.log("Dashboard request for single date:", date);
-      
+
 //       const summaries = await SolventOperatorSummary.find({ date });
-      
+
 //       if (!summaries || summaries.length === 0) {
 //         const dailyLog = await DailyLog.findOne({ date });
 //         if (dailyLog) {
@@ -665,7 +647,7 @@
 //             charts: []
 //           });
 //         }
-        
+
 //         return res.json({
 //           data: { steam: 0, electric: 0, production: 0 },
 //           charts: []
@@ -687,7 +669,7 @@
 //     } else if (startDate && endDate) {
 //       // Date range request - FIX: Add detailed report processing
 //       console.log("Dashboard request for date range:", startDate, "to", endDate);
-      
+
 //       const summaries = await SolventOperatorSummary.find({
 //         date: { $gte: startDate, $lte: endDate }
 //       });
@@ -714,10 +696,10 @@
 
 //       // Group summaries by operator and aggregate
 //       const operatorData = {};
-      
+
 //       summaries.forEach(summary => {
 //         const opName = summary.operatorName;
-        
+
 //         if (!operatorData[opName]) {
 //           operatorData[opName] = {
 //             totalHours: 0,
@@ -762,7 +744,7 @@
 //       operators.forEach(opName => {
 //         const data = operatorData[opName];
 //         const entries = data.totalEntries;
-        
+
 //         rows.CrudeOilColor.push(entries > 0 ? data.crudeOilColor / entries : 0);
 //         rows.CrudeOilMoisture.push(entries > 0 ? data.crudeOilMoisture / entries : 0);
 //         rows.DORBOilPercent.push(entries > 0 ? data.dorbOilMoisture / entries : 0);
@@ -791,22 +773,19 @@
 //       });
 
 //     } else {
-//       return res.status(400).json({ 
-//         error: "Either 'date' or both 'startDate' and 'endDate' are required" 
+//       return res.status(400).json({
+//         error: "Either 'date' or both 'startDate' and 'endDate' are required"
 //       });
 //     }
 
 //   } catch (error) {
 //     console.error("Error fetching dashboard data:", error);
-//     res.status(500).json({ 
-//       error: "Failed to fetch dashboard data", 
-//       details: error.message 
+//     res.status(500).json({
+//       error: "Failed to fetch dashboard data",
+//       details: error.message
 //     });
 //   }
 // };
-
-
-
 
 // controllers/solvent.controller.js
 import DailyLog from "../models/solvent/FormSchema.js";
@@ -819,33 +798,36 @@ const normalizeDateOnly = (dateInput) => {
   if (!dateInput) return null;
   const date = new Date(dateInput);
   if (isNaN(date.getTime())) return null;
-  return date.toISOString().split('T')[0];
+  return date.toISOString().split("T")[0];
 };
 
 export const getOperatorSummariesInRange = async (req, res) => {
   try {
     const { startDate, endDate } = req.query;
-    
+
     if (!startDate || !endDate) {
-      return res.status(400).json({ 
-        error: "Both startDate and endDate are required" 
+      return res.status(400).json({
+        error: "Both startDate and endDate are required",
       });
     }
 
-    const summaries = await SolventService.getOperatorSummariesInRange(startDate, endDate);
-    
+    const summaries = await SolventService.getOperatorSummariesInRange(
+      startDate,
+      endDate
+    );
+
     if (!summaries) {
-      return res.status(404).json({ 
-        message: "No operator data found for the specified date range" 
+      return res.status(404).json({
+        message: "No operator data found for the specified date range",
       });
     }
 
     res.status(200).json(summaries);
   } catch (error) {
     console.error("Error fetching operator summaries in range:", error);
-    res.status(500).json({ 
-      error: "Failed to fetch operator summaries", 
-      details: error.message 
+    res.status(500).json({
+      error: "Failed to fetch operator summaries",
+      details: error.message,
     });
   }
 };
@@ -853,31 +835,32 @@ export const getOperatorSummariesInRange = async (req, res) => {
 export const getOperatorPerformanceInRange = async (req, res) => {
   try {
     const { startDate, endDate, operatorName } = req.query;
-    
+
     if (!startDate || !endDate || !operatorName) {
-      return res.status(400).json({ 
-        error: "startDate, endDate, and operatorName are all required" 
+      return res.status(400).json({
+        error: "startDate, endDate, and operatorName are all required",
       });
     }
 
     const performance = await SolventService.getOperatorPerformanceInRange(
-      startDate, 
-      endDate, 
+      startDate,
+      endDate,
       operatorName
     );
-    
+
     if (!performance) {
-      return res.status(404).json({ 
-        message: "No performance data found for the specified operator and date range" 
+      return res.status(404).json({
+        message:
+          "No performance data found for the specified operator and date range",
       });
     }
 
     res.status(200).json(performance);
   } catch (error) {
     console.error("Error fetching operator performance in range:", error);
-    res.status(500).json({ 
-      error: "Failed to fetch operator performance", 
-      details: error.message 
+    res.status(500).json({
+      error: "Failed to fetch operator performance",
+      details: error.message,
     });
   }
 };
@@ -886,19 +869,21 @@ export const getOperatorPerformanceInRange = async (req, res) => {
 export const getOperatorSummaryForDate = async (req, res) => {
   try {
     const { date } = req.query;
-    
+
     if (!date) {
-      return res.status(400).json({ error: "Date query parameter is required" });
+      return res
+        .status(400)
+        .json({ error: "Date query parameter is required" });
     }
 
     console.log("Fetching operator summary for date:", date);
 
     let summaries = await SolventOperatorSummary.find({ date });
-    
+
     // If no summaries found, try to generate them from daily logs
     if (!summaries || summaries.length === 0) {
       console.log("No summaries found, checking daily logs...");
-      
+
       const dailyLog = await DailyLog.findOne({ date });
       if (dailyLog) {
         console.log("Daily log found, generating summaries...");
@@ -908,20 +893,19 @@ export const getOperatorSummaryForDate = async (req, res) => {
     }
 
     if (!summaries || summaries.length === 0) {
-      return res.status(404).json({ 
+      return res.status(404).json({
         message: "No operator data found for this date",
-        data: []
+        data: [],
       });
     }
 
     console.log(`Found ${summaries.length} operator summaries`);
     res.json(summaries);
-
   } catch (error) {
     console.error("Error fetching operator summary:", error);
-    res.status(500).json({ 
-      error: "Failed to fetch operator summary", 
-      details: error.message 
+    res.status(500).json({
+      error: "Failed to fetch operator summary",
+      details: error.message,
     });
   }
 };
@@ -977,11 +961,11 @@ export const getLogByDate = async (req, res) => {
   try {
     const { date } = req.params;
     const log = await SolventService.getLogByDate(date);
-    
+
     if (!log) {
       return res.status(404).json({ error: "No log found for this date" });
     }
-    
+
     res.json(log);
   } catch (err) {
     console.error("Error fetching log by date:", err);
@@ -1033,12 +1017,13 @@ export const getOperatorPerformance = async (req, res) => {
   try {
     const { date, operatorName } = req.query;
     if (!date || !operatorName) {
-      return res
-        .status(400)
-        .json({ error: "Missing date or operatorName" });
+      return res.status(400).json({ error: "Missing date or operatorName" });
     }
 
-    const summary = await SolventOperatorSummary.findOne({ date, operatorName });
+    const summary = await SolventOperatorSummary.findOne({
+      date,
+      operatorName,
+    });
 
     if (!summary) {
       return res.status(404).json({
@@ -1057,63 +1042,83 @@ export const getOperatorPerformance = async (req, res) => {
 export const getDashboardData = async (req, res) => {
   try {
     const { date, startDate, endDate } = req.query;
-    
+
     if (date) {
       // Single date request
       console.log("Dashboard request for single date:", date);
-      
+
       const summaries = await SolventOperatorSummary.find({ date });
-      
+
       if (!summaries || summaries.length === 0) {
         const dailyLog = await DailyLog.findOne({ date });
         if (dailyLog) {
           await generateOperatorSummary(date);
           const newSummaries = await SolventOperatorSummary.find({ date });
-          
-          const totals = newSummaries.reduce((acc, s) => {
-            acc.steam += s.steamConsumed || 0;
-            acc.electric += s.electricConsumed || 0;
-            acc.crudeProduction += s.totalCrudeOilProduction || 0;
-            acc.dorbProduction += s.totalDORBProduction || 0;
-            return acc;
-          }, { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 });
-          
+
+          const totals = newSummaries.reduce(
+            (acc, s) => {
+              acc.steam += s.steamConsumed || 0;
+              acc.electric += s.electricConsumed || 0;
+              acc.crudeProduction += s.totalCrudeOilProduction || 0;
+              acc.dorbProduction += s.totalDORBProduction || 0;
+              return acc;
+            },
+            { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 }
+          );
+
           return res.json({
             data: totals,
-            charts: []
+            charts: [],
           });
         }
-        
+
         return res.json({
-          data: { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 },
-          charts: []
+          data: {
+            steam: 0,
+            electric: 0,
+            crudeProduction: 0,
+            dorbProduction: 0,
+          },
+          charts: [],
         });
       }
 
-      const totals = summaries.reduce((acc, summary) => {
-        acc.steam += summary.steamConsumed || 0;
-        acc.electric += summary.electricConsumed || 0;
-        acc.crudeProduction += summary.totalCrudeOilProduction || 0;
-        acc.dorbProduction += summary.totalDORBProduction || 0;
-        return acc;
-      }, { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 });
+      const totals = summaries.reduce(
+        (acc, summary) => {
+          acc.steam += summary.steamConsumed || 0;
+          acc.electric += summary.electricConsumed || 0;
+          acc.crudeProduction += summary.totalCrudeOilProduction || 0;
+          acc.dorbProduction += summary.totalDORBProduction || 0;
+          return acc;
+        },
+        { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 }
+      );
 
       res.json({
         data: totals,
-        charts: []
+        charts: [],
       });
-
     } else if (startDate && endDate) {
       // Date range request
-      console.log("Dashboard request for date range:", startDate, "to", endDate);
-      
+      console.log(
+        "Dashboard request for date range:",
+        startDate,
+        "to",
+        endDate
+      );
+
       const summaries = await SolventOperatorSummary.find({
-        date: { $gte: startDate, $lte: endDate }
+        date: { $gte: startDate, $lte: endDate },
       });
 
       if (!summaries || summaries.length === 0) {
         return res.json({
-          data: { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 },
+          data: {
+            steam: 0,
+            electric: 0,
+            crudeProduction: 0,
+            dorbProduction: 0,
+          },
           detailedReportTable: {
             operators: ["No Data Available"],
             rows: {
@@ -1128,16 +1133,16 @@ export const getDashboardData = async (req, res) => {
               daysPresent: [0],
             },
           },
-          charts: []
+          charts: [],
         });
       }
 
       // Group summaries by operator and aggregate
       const operatorData = {};
-      
-      summaries.forEach(summary => {
+
+      summaries.forEach((summary) => {
         const opName = summary.operatorName;
-        
+
         if (!operatorData[opName]) {
           operatorData[opName] = {
             totalHours: 0,
@@ -1148,8 +1153,10 @@ export const getDashboardData = async (req, res) => {
             crudeOilColor: 0,
             crudeOilMoisture: 0,
             dorbOilMoisture: 0,
+            expectedDORBProduction: 0,
+            avgWeightDORBBags: 0,
             daysPresent: new Set(),
-            totalEntries: 0
+            totalEntries: 0,
           };
         }
 
@@ -1157,11 +1164,17 @@ export const getDashboardData = async (req, res) => {
         operatorData[opName].totalHours += summary.totalHours || 0;
         operatorData[opName].steamConsumed += summary.steamConsumed || 0;
         operatorData[opName].electricConsumed += summary.electricConsumed || 0;
-        operatorData[opName].totalCrudeOilProduction += summary.totalCrudeOilProduction || 0;
-        operatorData[opName].totalDORBProduction += summary.totalDORBProduction || 0;
+        operatorData[opName].totalCrudeOilProduction +=
+          summary.totalCrudeOilProduction || 0;
+        operatorData[opName].totalDORBProduction +=
+          summary.totalDORBProduction || 0;
         operatorData[opName].crudeOilColor += summary.crudeOilColor || 0;
         operatorData[opName].crudeOilMoisture += summary.crudeOilMoisture || 0;
         operatorData[opName].dorbOilMoisture += summary.dorbOilMoisture || 0;
+        operatorData[opName].expectedDORBProduction +=
+          summary.expectedDORBProduction || 0;
+        operatorData[opName].avgWeightDORBBags +=
+          summary.avgWeightDORBBags || 0;
         operatorData[opName].daysPresent.add(summary.date);
         operatorData[opName].totalEntries++;
       });
@@ -1176,54 +1189,63 @@ export const getDashboardData = async (req, res) => {
         electricConsumed: [],
         crudeProduction: [],
         dorbProduction: [],
+        expectedDORBProduction: [],
+        avgWeightDORBBags: [],
         totalWorkingHours: [],
         daysPresent: [],
       };
 
-      operators.forEach(opName => {
+      operators.forEach((opName) => {
         const data = operatorData[opName];
         const entries = data.totalEntries;
-        
+
         rows.CrudeOilColor.push(entries > 0 ? data.crudeOilColor / entries : 0);
-        rows.CrudeOilMoisture.push(entries > 0 ? data.crudeOilMoisture / entries : 0);
-        rows.DORBOilPercent.push(entries > 0 ? data.dorbOilMoisture / entries : 0);
+        rows.CrudeOilMoisture.push(
+          entries > 0 ? data.crudeOilMoisture / entries : 0
+        );
+        rows.DORBOilPercent.push(
+          entries > 0 ? data.dorbOilMoisture / entries : 0
+        );
         rows.steamConsumed.push(data.steamConsumed);
         rows.electricConsumed.push(data.electricConsumed);
         rows.crudeProduction.push(data.totalCrudeOilProduction);
         rows.dorbProduction.push(data.totalDORBProduction);
+        rows.expectedDORBProduction.push(data.expectedDORBProduction || 0);
+        rows.avgWeightDORBBags.push(data.avgWeightDORBBags || 0);
         rows.totalWorkingHours.push(data.totalHours);
         rows.daysPresent.push(data.daysPresent.size);
       });
 
       // Calculate overall totals
-      const totals = summaries.reduce((acc, summary) => {
-        acc.steam += summary.steamConsumed || 0;
-        acc.electric += summary.electricConsumed || 0;
-        acc.crudeProduction += summary.totalCrudeOilProduction || 0;
-        acc.dorbProduction += summary.totalDORBProduction || 0;
-        return acc;
-      }, { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 });
+      const totals = summaries.reduce(
+        (acc, summary) => {
+          acc.steam += summary.steamConsumed || 0;
+          acc.electric += summary.electricConsumed || 0;
+          acc.crudeProduction += summary.totalCrudeOilProduction || 0;
+          acc.dorbProduction += summary.totalDORBProduction || 0;
+          return acc;
+        },
+        { steam: 0, electric: 0, crudeProduction: 0, dorbProduction: 0 }
+      );
 
       res.json({
         data: totals,
         detailedReportTable: {
           operators,
-          rows
+          rows,
         },
-        charts: []
+        charts: [],
       });
-
     } else {
-      return res.status(400).json({ 
-        error: "Either 'date' or both 'startDate' and 'endDate' are required" 
+      return res.status(400).json({
+        error: "Either 'date' or both 'startDate' and 'endDate' are required",
       });
     }
-
   } catch (error) {
     console.error("Error fetching dashboard data:", error);
-    res.status(500).json({ 
-      error: "Failed to fetch dashboard data", 
-      details: error.message 
+    res.status(500).json({
+      error: "Failed to fetch dashboard data",
+      details: error.message,
     });
   }
 };

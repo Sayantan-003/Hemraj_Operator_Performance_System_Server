@@ -30,8 +30,6 @@ const RawSteamSchema = new mongoose.Schema({
   consumed: Number,
 });
 
-
-
 const RawAmpereSchema = new mongoose.Schema({
   shiftId: String,
   value: Number,
@@ -41,7 +39,6 @@ const RawBatchSchema = new mongoose.Schema({
   shiftId: String,
   value: Number,
 });
-
 
 const SolventDailyLogSchema = new mongoose.Schema(
   {
@@ -54,8 +51,10 @@ const SolventDailyLogSchema = new mongoose.Schema(
     raw_labReports: [RawLabReportSchema],
     raw_steamReadings: [RawSteamSchema],
     raw_batches: [RawBatchSchema],
-    raw_totalCrudeOilProduction : {type: Number ,  default:0},
-    raw_totalDORBProduction : {type: Number ,  default:0},
+    raw_totalCrudeOilProduction: { type: Number, default: 0 },
+    raw_totalDORBProduction: { type: Number, default: 0 },
+    raw_totalFeeding: { type: Number, default: 0 }, 
+
     raw_ampereLoad: [RawAmpereSchema],
   },
   { timestamps: true }

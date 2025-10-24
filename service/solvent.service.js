@@ -197,8 +197,6 @@
 
 // export default SolventService;
 
-
-
 // services/solvent.service.js
 import SolventDailyLog from "../models/solvent/FormSchema.js";
 import SolventOperatorSummary from "../models/solvent/OperatorSummary.js"; // ADD THIS IMPORT
@@ -245,9 +243,9 @@ const SolventService = {
     const operators = formData.operators || [];
     return operators.map((op) => {
       const shiftIds = op.shiftName
-        ? op.shiftName.split("+").map((s) =>
-            s.trim().toLowerCase().replace(/\s+/g, "")
-          )
+        ? op.shiftName
+            .split("+")
+            .map((s) => s.trim().toLowerCase().replace(/\s+/g, ""))
         : [];
 
       let totalHours = 0;
@@ -282,6 +280,8 @@ const SolventService = {
       raw_batches: formData.batches || [],
       raw_totalCrudeOilProduction: formData.totalCrudeOilProduction ?? 0,
       raw_totalDORBProduction: formData.totalDORBProduction ?? 0,
+      raw_ampereLoad: formData.ampereLoad || [],
+      raw_totalFeeding: formData.totalFeeding ?? 0,
       raw_ampereLoad: formData.ampereLoad || [],
     });
 
@@ -333,7 +333,7 @@ const SolventService = {
   async getOperatorSummariesInRange(startDate, endDate) {
     try {
       console.log("Fetching operators in range:", startDate, "to", endDate);
-      
+
       const summaries = await SolventOperatorSummary.find({
         date: { $gte: startDate, $lte: endDate },
       }).select("operatorName shiftName date");
@@ -348,14 +348,14 @@ const SolventService = {
 
         if (logs.length > 0) {
           const operators = [];
-          logs.forEach(log => {
+          logs.forEach((log) => {
             if (log.operators && log.operators.length > 0) {
-              log.operators.forEach(op => {
-                if (!operators.find(existing => existing.name === op.name)) {
+              log.operators.forEach((op) => {
+                if (!operators.find((existing) => existing.name === op.name)) {
                   operators.push({
                     name: op.name,
                     shiftName: op.shiftName,
-                    date: log.date
+                    date: log.date,
                   });
                 }
               });
@@ -363,7 +363,7 @@ const SolventService = {
           });
           return operators;
         }
-        
+
         return [];
       }
 
@@ -396,8 +396,10 @@ const SolventService = {
         if (logs.length === 0) return null;
 
         // Basic aggregation from logs
-        const operatorLogs = logs.filter(log => 
-          log.operators && log.operators.some(op => op.name === operatorName)
+        const operatorLogs = logs.filter(
+          (log) =>
+            log.operators &&
+            log.operators.some((op) => op.name === operatorName)
         );
 
         if (operatorLogs.length === 0) return null;
@@ -408,7 +410,7 @@ const SolventService = {
           endDate,
           daysPresent: operatorLogs.length,
           totalHours: operatorLogs.reduce((sum, log) => {
-            const op = log.operators.find(o => o.name === operatorName);
+            const op = log.operators.find((o) => o.name === operatorName);
             return sum + (op ? op.totalHours : 0);
           }, 0),
           steamConsumed: 0, // Would need to calculate from raw data
@@ -465,7 +467,7 @@ const SolventService = {
       console.error("Error in getOperatorPerformanceInRange:", error);
       throw error;
     }
-  }
+  },
 };
 
 export default SolventService;
